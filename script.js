@@ -155,6 +155,7 @@ class App {
 
   _showForm(e) {
     this.#mapEvent = e;
+    this._clearInput();
     sidebar.classList.remove('hide-sidebar');
     form.classList.remove('hidden');
     inputDistance.focus();
@@ -179,9 +180,6 @@ class App {
     // prettier-ignore
     inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value = '';
     inputType.removeAttribute('disabled');
-
-    // For mobile
-    setTimeout(() => sidebar.classList.add('hide-sidebar'), 1000);
   }
 
   _toggleElevationField() {
@@ -207,6 +205,9 @@ class App {
 
     // Hide form + clear input fields
     this._hideForm();
+
+    // For mobile
+    setTimeout(() => sidebar.classList.add('hide-sidebar'), 1000);
 
     // Set local storage to all workouts
     this._setLocalStorage();
@@ -374,6 +375,9 @@ class App {
 
     this.#currentWorkoutEl.remove();
     this.#currentWorkoutEl = null;
+
+    // For mobile
+    setTimeout(() => sidebar.classList.add('hide-sidebar'), 1000);
   }
 
   _moveOrEdit(e) {
