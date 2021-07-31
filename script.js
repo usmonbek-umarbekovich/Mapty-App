@@ -161,9 +161,10 @@ class App {
   }
 
   _fitMarkers() {
-    this.#map.fitBounds(this.#featureGroup.getBounds(), {
-      padding: L.point(70, 70),
-    });
+    if (this.#featureGroup.getBounds()?._southWest)
+      this.#map.fitBounds(this.#featureGroup.getBounds(), {
+        padding: L.point(50, 50),
+      });
     sidebar.classList.add('hide-sidebar');
   }
 
