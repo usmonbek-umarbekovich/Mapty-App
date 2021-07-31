@@ -155,7 +155,6 @@ class App {
 
   _showForm(e) {
     this.#mapEvent = e;
-    this._clearInput();
     sidebar.classList.remove('hide-sidebar');
     form.classList.remove('hidden');
     inputDistance.focus();
@@ -179,8 +178,7 @@ class App {
   _clearInput() {
     // prettier-ignore
     inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value = '';
-    if (inputType.getAttribute('disabled'))
-      inputType.setAttribute('disabled', false);
+    inputType.removeAttribute('disabled');
 
     // For mobile
     setTimeout(() => sidebar.classList.add('hide-sidebar'), 1000);
@@ -417,6 +415,7 @@ class App {
     else if (editEl) {
       if (this.#currentWorkoutEl) {
         this.#currentWorkoutEl.classList.remove('workout-hidden');
+        inputType.removeAttribute('disabled');
       }
       this.#currentWorkoutEl = workoutEl;
 
