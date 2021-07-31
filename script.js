@@ -180,6 +180,9 @@ class App {
     inputDistance.value = inputDuration.value = inputCadence.value = inputElevation.value = '';
     if (inputType.getAttribute('disabled'))
       inputType.setAttribute('disabled', false);
+
+    // For mobile
+    setTimeout(() => sidebar.classList.add('hide-sidebar'), 1000);
   }
 
   _toggleElevationField() {
@@ -372,9 +375,6 @@ class App {
 
     this.#currentWorkoutEl.remove();
     this.#currentWorkoutEl = null;
-
-    // For mobile
-    setTimeout(() => sidebar.classList.add('hide-sidebar'), 1000);
   }
 
   _moveOrEdit(e) {
@@ -461,7 +461,7 @@ class App {
       };
       document.addEventListener('click', helper);
     } else if (workoutEl) {
-      if (form.classList.contains('hidden') && !workoutDetails?.dataset?.key)
+      if (!editEl && !workoutDetails?.dataset?.key && !deleteEl)
         sidebar.classList.add('hide-sidebar');
 
       this.#map.setView(this.#workout.coords, this.#mapZoomLevel, {
