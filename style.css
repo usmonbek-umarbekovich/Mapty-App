@@ -446,6 +446,10 @@ a:visited {
     transform: translateX(-6%);
   }
 
+  .hide-sidebar {
+    transform: translateX(-100%);
+  }
+
   .workout {
     grid-template-columns: 1fr;
     gap: 0.5rem;
@@ -473,20 +477,21 @@ a:visited {
   }
 }
 
-@media(max-height: 400px) {
+@media (max-height: 400px) {
   body {
-    padding: .2rem 2.5rem;
+    padding: 0.2rem 2.5rem;
   }
 
   .sidebar {
-    padding: 1rem 2rem 4rem
+    padding: 1rem 2rem 4rem;
   }
 
   .copyright {
     bottom: 1rem;
   }
 
-  .reset-icon, .fit-markers {
+  .reset-icon,
+  .fit-markers {
     top: 1rem;
   }
 
