@@ -155,6 +155,7 @@ class App {
 
   _showForm(e) {
     this.#mapEvent = e;
+    this._clearInput();
     sidebar.classList.remove('hide-sidebar');
     form.classList.remove('hidden');
     inputDistance.focus();
